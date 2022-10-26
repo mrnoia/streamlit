@@ -60,6 +60,7 @@ if selected == "Markdown":
     st.markdown("## this is a markdown Heading level 2")
     st.markdown("1. this is a markdown list")
     st.markdown("2. this is a markdown lis")
+    st.markdown("Check markdown syntax [here](https://www.markdownguide.org/)")
 
 
 # st.sidebar.title("Python")
