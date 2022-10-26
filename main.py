@@ -9,8 +9,8 @@ def streamlit_sidebar(orientation="vertical"):
     with st.sidebar:
         selected = option_menu(
             menu_title="Navigation",  # required
-            options=["Home", "Pandas", "Markdown"],  # required
-            icons=["house", "book", "envelope"],  # optional
+            options=["Home", "Pandas", "Markdown", "Widgets"],  # required
+            icons=["house", "book", "envelope", "gear-wide"],  # optional
             menu_icon="cast",  # optional
             default_index=0,  # optional
             orientation=orientation,
@@ -34,6 +34,9 @@ selected = streamlit_sidebar(orientation="vertical")
 
 if selected == "Home":
     st.title(f"You have selected {selected}")
+    st.markdown(
+        "if you wonder where sidebar the icons come from [check here](https://icons.getbootstrap.com/)"
+    )
     list = ["find", "item", "in", "list"]
     user_input = st.text_input("Enter search item below")
     st.write(list)
@@ -42,11 +45,11 @@ if selected == "Home":
     else:
         st.write("not found")
 
-
 if selected == "Pandas":
     st.title(f"You have selected {selected}")
 
     df = pd.DataFrame(np.random.randn(7, 5), columns=("col %d" % i for i in range(5)))
+    st.help(df)
     # displaying the dataframe as an interactive object
     st.write("Displaying the dataframe in a static manner")
     st.table(df)
@@ -61,6 +64,24 @@ if selected == "Markdown":
     st.markdown("1. this is a markdown list")
     st.markdown("2. this is a markdown lis")
     st.markdown("Check markdown syntax [here](https://www.markdownguide.org/)")
+
+if selected == "Widgets":
+    st.button("Click me")
+    st.checkbox("I agree")
+    st.radio("Pick one", ["cats", "dogs"])
+    st.selectbox("Pick one", ["cats", "dogs"])
+    st.multiselect("Buy", ["milk", "apples", "potatoes"])
+    st.slider("Pick a number", 0, 100)
+    st.select_slider("Pick a size", ["S", "M", "L"])
+    st.text_input("First name")
+    st.number_input("Pick a number", 0, 10)
+    st.text_area("Text to translate")
+    st.date_input("Your birthday")
+    st.time_input("Meeting time")
+    st.file_uploader("Upload a CSV")
+    st.camera_input("Take a picture")
+    st.color_picker("Pick a color")
+    st.markdown("Cheat Sheet [here](https://docs.streamlit.io/library/cheatsheet)")
 
 
 # st.sidebar.title("Python")
