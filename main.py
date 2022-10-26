@@ -3,14 +3,14 @@ from streamlit_option_menu import option_menu
 import pandas as pd
 import numpy as np
 
-
+# menu and sidebar builders
 def streamlit_sidebar(orientation="vertical"):
     # build the navigation sidebar
     with st.sidebar:
         selected = option_menu(
             menu_title="Navigation",  # required
-            options=["Home", "Pandas", "Markdown", "Widgets"],  # required
-            icons=["house", "book", "envelope", "gear-wide"],  # optional
+            options=["Home", "Pandas", "Markdown", "Widgets", "Images"],  # required
+            icons=["house", "book", "envelope", "gear-wide", "image"],  # optional
             menu_icon="cast",  # optional
             default_index=0,  # optional
             orientation=orientation,
@@ -34,9 +34,17 @@ selected = streamlit_sidebar(orientation="vertical")
 
 if selected == "Home":
     st.title(f"You have selected {selected}")
+    st.write("Hello ,I am learning how to build a streamlit app")
     st.markdown(
-        "if you wonder where sidebar the icons come from [check here](https://icons.getbootstrap.com/)"
+        "if you wonder where the sidebar icons comes from [check here](https://icons.getbootstrap.com/)"
     )
+    st.caption("I am a caption and below is some code")
+    st.code(
+        """if selected == 'Home':
+    x = 2022"""
+    )
+    st.latex(r""" a+a r^1+a r^2+a r^3 """)
+    st.subheader("testing how to search a list and print the result")
     list = ["find", "item", "in", "list"]
     user_input = st.text_input("Enter search item below")
     st.write(list)
@@ -66,6 +74,7 @@ if selected == "Markdown":
     st.markdown("Check markdown syntax [here](https://www.markdownguide.org/)")
 
 if selected == "Widgets":
+    st.title(f"You have selected {selected}")
     st.button("Click me")
     st.checkbox("I agree")
     st.radio("Pick one", ["cats", "dogs"])
@@ -83,15 +92,12 @@ if selected == "Widgets":
     st.color_picker("Pick a color")
     st.markdown("Cheat Sheet [here](https://docs.streamlit.io/library/cheatsheet)")
 
+if selected == "Images":
+    st.title(f"You have selected {selected}")
+    st.markdown(
+        "interesting article [here](https://www.folkstalk.com/2022/09/how-to-user-upload-image-streamlit-with-code-examples.html)"
+    )
 
 # st.sidebar.title("Python")
 # st.sidebar.title("CSS")
 # st.sidebar.subheader("this is the subheader")
-# st.write("Hello ,let's learn how to build a streamlit app together")
-# st.title("this is the app title")
-# st.header("this is the markdown")
-# st.markdown("this is the header")
-# st.subheader("this is the subheader")
-# st.caption("this is the caption")
-# st.code("x=2021")
-# st.latex(r""" a+a r^1+a r^2+a r^3 """)
