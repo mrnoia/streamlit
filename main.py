@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import home_page, pandas_page, streamlit_page
+import home_page, pandas_page, streamlit_page, aggrid_page
 
 # from  main import views
 
@@ -13,6 +13,7 @@ menu_ops_icons = {
     "Home": "house",
     "Streamlit Commands": "file-earmark-spreadsheet",
     "Integrating Pandas": "table",
+    "Component: AgGrid": "table",
 }
 
 
@@ -69,6 +70,9 @@ if selected == "Integrating Pandas":
 
 if selected == "Streamlit Commands":
     streamlit_page.index(selected)
+
+if selected == "Component: AgGrid":
+    aggrid_page.index(selected)
 
 
 # if selected == "Markdown":
